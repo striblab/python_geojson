@@ -49,18 +49,19 @@ def sheet_to_json_onefile(obj1, obj2, obj3, file_name):
             continue
         else:
             obj_properties = {
-                "nowopen_name": name,
-                "nowopen_desc": desc,
-                "nowopen_address": address,
-                "nowopen_phone": phone,
-                "nowopen_website": website,
-                "nowopen_rel_id": rel_id,
-                "nowopen_image": image,
-                "nowopen_caption": caption,
-                "nowopen_credit": credit,
-                "nowopen_zoom": float(zoom),
-                "nowopen_bearing": float(bearing),
-                "nowopen_pitch": float(pitch)
+                "type": "nowopen",
+                "name": name,
+                "desc": desc,
+                "address": address,
+                "phone": phone,
+                "website": website,
+                "rel_id": rel_id,
+                "image": image,
+                "caption": caption,
+                "credit": credit,
+                "zoom": float(zoom),
+                "bearing": float(bearing),
+                "pitch": float(pitch)
             }
 
             obj_point = Point((float(obj_lat), float(obj_long)))
@@ -93,18 +94,19 @@ def sheet_to_json_onefile(obj1, obj2, obj3, file_name):
             continue
         else:
             obj_properties = {
-                "closing_name": name,
-                "closing_desc": desc,
-                "closing_address": address,
-                "closing_phone": phone,
-                "closing_website": website,
-                "closing_rel_id": rel_id,
-                "closing_image": image,
-                "closing_caption": caption,
-                "closing_credit": credit,
-                "closing_zoom": float(zoom),
-                "closing_bearing": float(bearing),
-                "closing_pitch": float(pitch)
+                "type": "announced",
+                "name": name,
+                "desc": desc,
+                "address": address,
+                "phone": phone,
+                "website": website,
+                "rel_id": rel_id,
+                "image": image,
+                "caption": caption,
+                "credit": credit,
+                "zoom": float(zoom),
+                "bearing": float(bearing),
+                "pitch": float(pitch)
             }
 
             obj_point = Point((float(obj_lat), float(obj_long)))
@@ -137,18 +139,19 @@ def sheet_to_json_onefile(obj1, obj2, obj3, file_name):
             continue
         else:
             obj_properties = {
-                "announced_name": name,
-                "announced_desc": desc,
-                "announced_address": address,
-                "announced_phone": phone,
-                "announced_website": website,
-                "announced_rel_id": rel_id,
-                "announced_image": image,
-                "announced_caption": caption,
-                "announced_credit": credit,
-                "announced_zoom": float(zoom),
-                "announced_bearing": float(bearing),
-                "announced_pitch": float(pitch)
+                "type": "closing",
+                "name": name,
+                "desc": desc,
+                "address": address,
+                "phone": phone,
+                "website": website,
+                "rel_id": rel_id,
+                "image": image,
+                "caption": caption,
+                "credit": credit,
+                "zoom": float(zoom),
+                "bearing": float(bearing),
+                "pitch": float(pitch)
             }
 
             obj_point = Point((float(obj_lat), float(obj_long)))
@@ -358,7 +361,7 @@ last_day = calendar.monthrange(currentYear, currentMonth)
 
 monthYear = str(currentMonth) + str(currentYear)
 
-sheet_to_json_onefile(now_open_json, closing_changing_json, announced_json, './restaurants.geojson')
+sheet_to_json_onefile(now_open_json, announced_json, closing_changing_json, './restaurants.geojson')
 
 # run function on each 2D array, writing the result to a separate geojson file.
 # sheet_to_json_1(now_open_json, './now_open.geojson')
